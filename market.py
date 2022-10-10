@@ -37,7 +37,7 @@ with open(os.path.join(__location__, "private_key.txt")) as f:
 
 API_HOST_MAINNET = 'https://api.dydx.exchange/'
 API_HOST_GOERLI = 'https://api.stage.dydx.exchange/'
-NETWORK_ID_GOERLI: 5
+NETWORK_ID_GOERLI = 5
 ETHEREUM_ADDRESS = '0xA72390121F5c362753bE288CD63e9034A1277042'
 WEB_PROVIDER_URL = 'https://goerli.infura.io/v3/49d9273a4f5c446697ee32b9af8bc7cc'
 
