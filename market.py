@@ -63,8 +63,8 @@ def get_client(host, network_id):
         web3_provider=WEB_PROVIDER_URL,
     )
     # Onboard the user for new accounts on dydx.
-    res = client.onboarding.create_user()
-    #api_key_credentials = res['apiKey']
+    # res = client.onboarding.create_user()
+    # api_key_credentials = res['apiKey']
  
     return client
 
