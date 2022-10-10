@@ -32,7 +32,7 @@ __location__ = os.path.realpath(
     os.path.join(os.getcwd(), os.path.dirname(__file__)))
  
 test_private_key = ""
-with open(os.path.join(__location__, "testkey.txt")) as f:
+with open(os.path.join(__location__, "private_key.txt")) as f:
     test_private_key = f.readlines()[0].rstrip()
  
 ETHEREUM_ADDRESS = '0x66aCb0bB35894bc68c7802F7DEa5ed3bdfe3a233'
