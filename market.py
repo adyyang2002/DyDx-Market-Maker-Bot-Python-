@@ -64,13 +64,17 @@ def get_client(host, network_id):
     )
     # Onboard the user for new accounts on dydx.
     res = client.onboarding.create_user()
-    api_key_credentials = res['apiKey']
+    #api_key_credentials = res['apiKey']
  
     return client
 
 client = get_client(API_HOST_GOERLI, NETWORK_ID_GOERLI)
-response = client.public.get_markets()
-print(response.data)
+# response = client.public.get_markets()
+# print(response.data)
+
+print('Waiting for funds...')
+transfer = client.private.request_testnet_tokens()
+print('...done.', transfer.data)
 
 #putting a buy and sell order, and order
 #every 5 mins, put a buy and sell order 1% below and 1% above
