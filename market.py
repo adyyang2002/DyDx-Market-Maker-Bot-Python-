@@ -35,7 +35,7 @@ test_private_key = ""
 with open(os.path.join(__location__, "private_key.txt")) as f:
     test_private_key = f.readlines()[0].rstrip()
  
-ETHEREUM_ADDRESS = '0x66aCb0bB35894bc68c7802F7DEa5ed3bdfe3a233'
+ETHEREUM_ADDRESS = '0xA72390121F5c362753bE288CD63e9034A1277042'
 WEB_PROVIDER_URL = 'https://mainnet.infura.io/v3/49d9273a4f5c446697ee32b9af8bc7cc'
 
 def get_client(host, network_id):
