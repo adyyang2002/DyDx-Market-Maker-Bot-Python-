@@ -11,6 +11,7 @@ from dydx3.constants import ORDER_SIDE_BUY
 from dydx3.constants import ORDER_SIDE_SELL
 from dydx3.constants import ORDER_STATUS_OPEN
 from dydx3.constants import ORDER_TYPE_LIMIT
+from dydx3.constants import goerli
 from web3 import Web3
 import dydx3.constants as consts
 import json
@@ -34,9 +35,12 @@ __location__ = os.path.realpath(
 test_private_key = ""
 with open(os.path.join(__location__, "private_key.txt")) as f:
     test_private_key = f.readlines()[0].rstrip()
- 
+
+API_HOST_MAINNET = 'https://api.dydx.exchange/'
+API_HOST_GOERLI = 'https://api.stage.dydx.exchange/'
+NETWORK_ID_GOERLI: 5
 ETHEREUM_ADDRESS = '0xA72390121F5c362753bE288CD63e9034A1277042'
-WEB_PROVIDER_URL = 'https://mainnet.infura.io/v3/49d9273a4f5c446697ee32b9af8bc7cc'
+WEB_PROVIDER_URL = 'https://goerli.infura.io/v3/49d9273a4f5c446697ee32b9af8bc7cc'
 
 def get_client(host, network_id):
  
@@ -60,11 +64,15 @@ def get_client(host, network_id):
         web3_provider=WEB_PROVIDER_URL,
     )
     # Onboard the user for new accounts on dydx.
-    #res = client.onboarding.create_user()
-    #api_key_credentials = res['apiKey']
+    res = client.onboarding.create_user()
+    api_key_credentials = res['apiKey']
  
     return client
 
-client = get_client(API_HOST_MAINNET, NETWORK_ID_MAINNET)
+client = get_client(API_HOST_GOERLI, NETWORK_ID_GOERLI)
 response = client.public.get_markets()
 print(response.data)
+
+#putting a buy and sell order, and order
+#every 5 mins, put a buy and sell order 1% below and 1% above
+#remove an existing order if they arent fulfilled
