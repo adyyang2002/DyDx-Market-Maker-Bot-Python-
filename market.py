@@ -11,7 +11,6 @@ from dydx3.constants import ORDER_SIDE_BUY
 from dydx3.constants import ORDER_SIDE_SELL
 from dydx3.constants import ORDER_STATUS_OPEN
 from dydx3.constants import ORDER_TYPE_LIMIT
-from dydx3.constants import goerli
 from web3 import Web3
 import dydx3.constants as consts
 import json
