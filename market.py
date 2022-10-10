@@ -46,12 +46,11 @@ def get_client(host, network_id):
         web3_provider=WEB_PROVIDER_URL # Can use url of any Ethereum node
     )
  
-    key_pair_with_y_coordinate = source_client.onboarding.derive_stark_key(
+    stark_private_key = source_client.onboarding.derive_stark_key(
     # Optional if eth_private_key or web3.eth.defaultAccount was provided.
         ethereum_address=ETHEREUM_ADDRESS,
     )
  
-    stark_private_key = key_pair_with_y_coordinate['private_key']   
     # Create client for the new user.
     client = Client(
         host=host,
