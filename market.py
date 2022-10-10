@@ -67,4 +67,4 @@ def get_client(host, network_id):
 
 client = get_client(API_HOST_MAINNET, NETWORK_ID_MAINNET)
 response = client.public.get_markets()
-print(response)
+print(response.data)
