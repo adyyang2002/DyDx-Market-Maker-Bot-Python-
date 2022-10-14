@@ -10,7 +10,6 @@ def main():
         counter += 1
     print(time.time())
 #main()
-print(float(1/3))
 
 # sorted = sorted("Sorting something alphabetically".split(), key=str.lower)
 # print(sorted)
