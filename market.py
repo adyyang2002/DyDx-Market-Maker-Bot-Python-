@@ -22,6 +22,7 @@ import os
 import logging
 import sys
 import csv
+import threading
 
 # buy/sell on dydx programatically
 # install dydx client on the aws instance
@@ -48,6 +49,7 @@ TOLERANCE = 100000
 #calculate 1% from the index price for limit
 LIMIT = 1000000
 TARGET_TRADE_SIZE = 1
+timer = 60
 
 def get_client(host, network_id):
  
@@ -112,7 +114,7 @@ def trade(client, asset, target_size, position_id, order_side, price, live, tota
       size = target_size,
       price = price,
       limit_fee = '0.015',
-      expiration_epoch_seconds = time.time() + 300,
+      expiration_epoch_seconds = time.time() + 60,
     )
   else:
     # Log the trade to a csv file. 
@@ -166,6 +168,10 @@ def checkbook(client, asset):
     return ORDER_SIDE_BUY, bid_total - ask_total
 
   return ORDER_SIDE_SELL, bid_total - ask_total
+
+def main():
+  start_time = threading.Timer(timer, trade)
+  start_time.start()
 
 
 def main(asset = MARKET_BTC_USD, host = API_HOST_ROPSTEN, live = False, log_file_name = text_file):
