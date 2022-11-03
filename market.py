@@ -122,7 +122,8 @@ def trade():
     order_type = ORDER_TYPE_LIMIT,
     post_only = False,
     size = '1',
-    price = get_low(MARKET_BTC_USD),
+    #price = get_low(MARKET_BTC_USD),
+    price = '20200',
     limit_fee = '0.015',
     expiration_epoch_seconds = 60,
     time_in_force = TIME_IN_FORCE_GTT,
@@ -132,10 +133,11 @@ def trade():
     position_id = 1,
     market = MARKET_BTC_USD,
     side = ORDER_SIDE_SELL,
-    order_type=ORDER_TYPE_LIMIT,
+    order_type = ORDER_TYPE_LIMIT,
     post_only = False,
     size = '1',
-    price=get_high(MARKET_BTC_USD),
+    #price=get_high(MARKET_BTC_USD),
+    price = '20200',
     limit_fee = '0.015',
     expiration_epoch_seconds = 60,
     time_in_force = TIME_IN_FORCE_GTT,
@@ -144,7 +146,7 @@ def trade():
 def main():
   counter = 0
   print("Time: " + str(time.time()))
-  print(client.public.get_markets(MARKET_BTC_USD))
+  #print(client.public.get_markets(MARKET_BTC_USD))
   while(counter < 1440):
     #calls the buy and sell function
     trade()
