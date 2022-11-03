@@ -104,14 +104,14 @@ def get_low():
   markets = client.public.get_markets(MARKET_BTC_USD)          
   curr_price = markets.data['markets'][MARKET_BTC_USD]['indexPrice']
   print(curr_price)
-  return float(curr_price * 1.01)
+  return float(curr_price) * 1.01
 
 def get_high():
   #calculate 1% higher for price of bitcoin
   markets = client.public.get_markets(MARKET_BTC_USD)          
   curr_price = markets.data['markets'][MARKET_BTC_USD]['indexPrice']
   print(curr_price)
-  return float(curr_price * .99)
+  return float(curr_price) * .99
 
 def trade():
   #buy and sell order
