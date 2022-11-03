@@ -11,7 +11,6 @@ from dydx3.constants import ORDER_SIDE_BUY
 from dydx3.constants import ORDER_SIDE_SELL
 from dydx3.constants import ORDER_STATUS_OPEN
 from dydx3.constants import ORDER_TYPE_LIMIT
-
 from dydx3.constants import TIME_IN_FORCE_GTT
 
 from web3 import Web3
@@ -126,7 +125,6 @@ def trade():
     price = '20200',
     limit_fee = '0.015',
     expiration_epoch_seconds = 60,
-    time_in_force = TIME_IN_FORCE_GTT,
   )
 
   sell_order = client.private.create_order(
@@ -140,7 +138,6 @@ def trade():
     price = '20200',
     limit_fee = '0.015',
     expiration_epoch_seconds = 60,
-    time_in_force = TIME_IN_FORCE_GTT,
   )
 
 def main():
