@@ -109,7 +109,7 @@ def get_high(btc_price):
   return float(btc_price * .99)
 
 def trade():
-  #buy and sell
+  #buy and sell order
   
   buy_order = client.private.create_order(
     #what is position id?
@@ -118,10 +118,10 @@ def trade():
     side = ORDER_SIDE_BUY,
     order_type = ORDER_TYPE_LIMIT,
     post_only = False,
-    size='1',
+    size = '1',
     price = get_low(MARKET_BTC_USD),
-    limit_fee='0.015',
-    expiration_epoch_seconds=60,
+    limit_fee = '0.015',
+    expiration_epoch_seconds = 60,
     time_in_force = TIME_IN_FORCE_GTT,
   )
 
@@ -130,12 +130,12 @@ def trade():
     market = MARKET_BTC_USD,
     side = ORDER_SIDE_SELL,
     order_type=ORDER_TYPE_LIMIT,
-    post_only=False,
-    size='1',
+    post_only = False,
+    size = '1',
     price=get_high(MARKET_BTC_USD),
-    limit_fee='0.015',
-    expiration_epoch_seconds=60,
-    time_in_force=TIME_IN_FORCE_GTT,
+    limit_fee = '0.015',
+    expiration_epoch_seconds = 60,
+    time_in_force = TIME_IN_FORCE_GTT,
   )
 
 def main():
@@ -143,9 +143,10 @@ def main():
   print("Time: " + str(time.time()))
   while(counter < 1440):
     #calls the buy and sell function
-    print(counter)
+    trade()
     client.private.cancel_all_orders(market=MARKET_BTC_USD)
     counter += 1
+    print(counter)
     time.sleep(60)
   print("End: " + str(time.time()))
   print("Done")
