@@ -146,6 +146,7 @@ def main():
     time.sleep(60)
     client.private.cancel_all_orders(market=MARKET_BTC_USD)
     counter += 1
+    print(counter)
   print(time.time())
   print("Done")
 
