@@ -101,14 +101,15 @@ def get_total_csv_position_size(filename):
 
 def get_low():
   #calculate 1% lower for price of bitcoin
-  btc_price = client.public.get_markets(MARKET_BTC_USD)
-  return float(btc_price * 1.01)
+  markets = client.public.get_markets(MARKET_BTC_USD)          
+  curr_price = markets.data['markets'][MARKET_BTC_USD]['indexPrice']
+  return float(curr_price * 1.01)
 
 def get_high():
   #calculate 1% higher for price of bitcoin
-  btc_price = client.public.get_markets(MARKET_BTC_USD)
-
-  return float(btc_price * .99)
+  markets = client.public.get_markets(MARKET_BTC_USD)          
+  curr_price = markets.data['markets'][MARKET_BTC_USD]['indexPrice']
+  return float(curr_price * .99)
 
 def trade():
   #buy and sell order
@@ -121,10 +122,9 @@ def trade():
     order_type = ORDER_TYPE_LIMIT,
     post_only = False,
     size = '1',
-    #price = get_low(MARKET_BTC_USD),
-    price = '20200',
+    price = get_low(),
     limit_fee = '0.015',
-    #expiration_epoch_seconds = 60,
+    expiration_epoch_seconds = time.time() + 60,
     #time_in_force = TIME_IN_FORCE_GTT,
   )
 
@@ -135,10 +135,9 @@ def trade():
     order_type = ORDER_TYPE_LIMIT,
     post_only = False,
     size = '1',
-    #price=get_high(MARKET_BTC_USD),
-    price = '20200',
+    price=get_high(),
     limit_fee = '0.015',
-    #expiration_epoch_seconds = 60,
+    expiration_epoch_seconds = time.time() + 60,
     #time_in_force = TIME_IN_FORCE_GTT,
   )
 
