@@ -144,7 +144,7 @@ def trade():
 def main():
   counter = 0
   print("Time: " + str(time.time()))
-  print(client.public.get_markets().BTC.indexPrice)
+  print(client.public.get_markets(MARKET_BTC_USD).indexPrice)
   while(counter < 1440):
     #calls the buy and sell function
     trade()
