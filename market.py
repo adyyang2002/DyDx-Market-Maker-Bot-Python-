@@ -140,7 +140,7 @@ def trade():
 
 def main():
   counter = 0
-  print(time.time())
+  print("Time: " "time.time()")
   while(counter < 1440):
     #calls the buy and sell function
     time.sleep(60)
