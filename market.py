@@ -124,7 +124,8 @@ def trade():
     #price = get_low(MARKET_BTC_USD),
     price = '20200',
     limit_fee = '0.015',
-    expiration_epoch_seconds = 60,
+    #expiration_epoch_seconds = 60,
+    #time_in_force = TIME_IN_FORCE_GTT,
   )
 
   sell_order = client.private.create_order(
@@ -137,7 +138,8 @@ def trade():
     #price=get_high(MARKET_BTC_USD),
     price = '20200',
     limit_fee = '0.015',
-    expiration_epoch_seconds = 60,
+    #expiration_epoch_seconds = 60,
+    #time_in_force = TIME_IN_FORCE_GTT,
   )
 
 def main():
