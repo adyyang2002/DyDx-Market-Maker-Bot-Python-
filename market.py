@@ -115,7 +115,6 @@ def get_high():
 
 def trade():
   #buy and sell order
-  
   buy_order = client.private.create_order(
     #what is position id?
     position_id = 1,
