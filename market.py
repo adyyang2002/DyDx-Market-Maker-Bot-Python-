@@ -100,12 +100,15 @@ def get_total_csv_position_size(filename):
       total += float(row[1])
     return total
 
-def get_low(btc_price):
+def get_low():
   #calculate 1% lower for price of bitcoin
+  btc_price = client.public.get_markets(MARKET_BTC_USD)
   return float(btc_price * 1.01)
 
-def get_high(btc_price):
+def get_high():
   #calculate 1% higher for price of bitcoin
+  btc_price = client.public.get_markets(MARKET_BTC_USD)
+
   return float(btc_price * .99)
 
 def trade():
@@ -141,7 +144,7 @@ def trade():
 def main():
   counter = 0
   print("Time: " + str(time.time()))
-  print(MARKET_BTC_USD)
+  print(client.public.get_markets(MARKET_BTC_USD))
   while(counter < 1440):
     #calls the buy and sell function
     trade()
