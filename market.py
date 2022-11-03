@@ -140,14 +140,14 @@ def trade():
 
 def main():
   counter = 0
-  print("Time: " "time.time()")
+  print("Time: " + str(time.time()))
   while(counter < 1440):
     #calls the buy and sell function
     time.sleep(60)
     client.private.cancel_all_orders(market=MARKET_BTC_USD)
     counter += 1
     print(counter)
-  print("End: "+ str(time.time()))
+  print("End: " + str(time.time()))
   print("Done")
 
 main()
