@@ -1,5 +1,6 @@
 import time
 
+#practiced using time API
 def main():
     
     counter = 0
@@ -10,6 +11,3 @@ def main():
         counter += 1
     print(time.time())
 main()
-
-# sorted = sorted("Sorting something alphabetically".split(), key=str.lower)
-# print(sorted)
